@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Editar Timer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="updateTimerForm">
+    <ion-item lines="full">
+      <ion-label position="stacked">Ação</ion-label>
+      <ion-select formControlName="action" [(ngModel)]="action" id="week" interface="alert" value="{{ action }}"
+        required okText="Ok" cancelText="Cancelar">
+        <ion-select-option value="ligar">Ligar</ion-select-option>
+        <ion-select-option value="desligar">Desligar</ion-select-option>
+      </ion-select>
+      <ng-container *ngFor="let erro of mensagens_validacao.action">
+        <span class="msg-erro"
+          *ngIf="updateTimerForm.get('action').hasError(erro.tipo) && (updateTimerForm.get('action').dirty || updateTimerForm.get('action').touched)">
+          {{ erro.mensagem }}
+        </span>
+      </ng-container>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="stacked">Horário do Timer</ion-label>
+      <ion-input formControlName="dateTime" type="time" [(ngModel)]="dateTime" value="{{ dateTime }}" step="1" required>
+      </ion-input>
+      <ng-container *ngFor="let erro of mensagens_validacao.dateTime">
+        <span class="msg-erro"
+          *ngIf="updateTimerForm.get('dateTime').hasError(erro.tipo) && (updateTimerForm.get('dateTime').dirty || updateTimerForm.get('dateTime').touched)">
+          {{ erro.mensagem }}
+        </span>
+      </ng-container>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="stacked">Dias da Semana</ion-label>
+      <ion-select formControlName="newWeek" multiple="true" cancelText="Cancelar" okText="Ok"
+        [value]="[week1, week2, week3, week4, week5, week6, week7]" [(ngModel)]="newWeek" required>
+        <ion-select-option value="seg">Seg</ion-select-option>
+        <ion-select-option value="ter">Ter</ion-select-option>
+        <ion-select-option value="qua">Qua</ion-select-option>
+        <ion-select-option value="qui">Qui</ion-select-option>
+        <ion-select-option value="sex">Sex</ion-select-option>
+        <ion-select-option value="sab">Sab</ion-select-option>
+        <ion-select-option value="dom">Dom</ion-select-option>
+      </ion-select>
+      <ng-container *ngFor="let erro of mensagens_validacao.newWeek">
+        <span class="msg-erro"
+          *ngIf="updateTimerForm.get('newWeek').hasError(erro.tipo) && (updateTimerForm.get('newWeek').dirty || updateTimerForm.get('newWeek').touched)">
+          {{ erro.mensagem }}
+        </span>
+      </ng-container>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary" shape="full" expand="block" (click)="atualizar()" type="submit"
+          [disabled]="!updateTimerForm.valid">Atualizar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dispositivos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment color="dark shade" scrollable [(ngModel)]="selectTabs" mode="md">
+
+    <div>
+      <ion-segment-button value="all">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+    </div>
+
+    <div *ngFor="let room of Rooms">
+      <ion-segment-button value="{{ room.name }}">
+        <ion-label>{{ room.name }}</ion-label>
+      </ion-segment-button>
+    </div>
+
+  </ion-segment>
+
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngFor="let device of Devices">
+        <ion-col size="6" *ngIf="selectTabs == device.room.name || selectTabs == 'all'">
+          <div>
+            <ion-button fill="solid" expand="block" size="large" class="sqare_button" color="button"
+              (click)="mudaStatus(device.$key)">
+              <div class="vertical">
+                <ion-icon class="desligado" *ngIf="device.status == 'desligado'" slot="start"
+                  src="{{ device.icon.icon }}"></ion-icon>
+                <ion-icon class="ligado" *ngIf="device.status == 'ligado'" slot="start" src="{{ device.icon.icon }}">
+                </ion-icon>
+                <span class="desligado" *ngIf="device.status == 'desligado'">{{ device.name }}</span>
+                <span class="ligado" *ngIf="device.status == 'ligado'">{{ device.name }}</span>
+              </div>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

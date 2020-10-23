@@ -1,0 +1,39 @@
+ion-content {
+    --background: url('../../../../assets/img/backgroundapp.png') no-repeat center center / cover !important;
+
+    --ion-text-color: #fff;
+
+    ion-list {
+        border-radius: 5px;
+
+        max-width: 600px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        font-family: 'Merienda One', cursive !important;
+    }
+
+    ion-button {
+        max-width: 600px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .error-message {
+        font-size: 11px;
+        color: #ff0000;
+    }
+}
+
+@media (min-width: 720px) {
+    ion-content {
+        .error-message {
+            font-size: 14px;
+            color: #ff0000;
+        }
+    }
+}

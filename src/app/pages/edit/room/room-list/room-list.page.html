@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Cômodos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addRoom()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-item *ngFor="let room of Rooms" lines="full">
+    <ion-label>
+      <h2>
+        <ion-icon src="{{ room.icon }}"></ion-icon>&nbsp;&nbsp;{{room.name}}
+      </h2>
+    </ion-label>
+
+    <div class="buttons">
+      <button class="transparent" ion-button clear [routerLink]="['/room-page/', room.$key]">
+        <ion-icon name="create" style="zoom:2.0"></ion-icon>
+      </button>
+
+      <button class="transparent" ion-button clear (click)="deleteRoom(room.$key)">
+        <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+      </button>
+    </div>
+
+  </ion-item>
+</ion-content>

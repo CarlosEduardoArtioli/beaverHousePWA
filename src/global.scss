@@ -24,3 +24,30 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+* {
+    font-family: 'Open Sans' !important;
+}
+
+ion-content {
+    --background: #002855;
+}
+
+ion-toolbar {
+    --background: #001845;
+}
+
+.actionSheet {
+    --background: #303030 !important;
+    --button-background-selected-opacity: 0;
+}
+
+@media (min-width: 1100px) {
+    ion-toolbar {
+        --min-height: 42px;
+
+        ion-title {
+            font-size: 22px;
+        }
+    }
+}

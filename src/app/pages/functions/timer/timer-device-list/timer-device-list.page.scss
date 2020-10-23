@@ -1,0 +1,50 @@
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none;
+}
+
+ion-label {
+    font-weight: bolder;
+}
+
+ion-content {
+
+    --ion-text-color: #fff;
+
+    ion-icon {
+        color: white;
+    }
+}
+
+ion-item {
+    --background: rgb(43, 53, 102, 0.7);
+}
+
+ion-icon {
+    font-size: 20px;
+}
+
+ion-item ion-label {
+    font-size: 16px;
+}
+
+@media (min-width: 720px) {
+    ion-content {
+
+        ion-segment ion-label {
+            font-size: 18px;
+        }
+
+        ion-item ion-label strong {
+            font-size: 24px;
+        }
+
+        ion-icon {
+            font-size: 24px;
+        }
+
+        ion-item ion-label {
+            font-size: 20px;
+        }
+    }
+}

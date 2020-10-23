@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Timers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addTimer()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ng-container *ngFor="let timer of Timers">
+    <ion-item lines="full" mode="md">
+      <ion-label>
+        <ion-label>
+          <ion-icon name="time-outline"></ion-icon>&nbsp; {{timer.timer}}
+        </ion-label>
+        <ion-label>
+          <ion-icon name="calendar-outline"></ion-icon>&nbsp; <span *ngIf="timer.week1 === 'seg'">Seg</span>
+          <span *ngIf="timer.week2 === 'ter'">Ter</span> <span *ngIf="timer.week3 === 'qua'">Qua</span>
+          <span *ngIf="timer.week4 === 'qui'">Qui</span> <span *ngIf="timer.week5 === 'sex'">Sex</span>
+          <span *ngIf="timer.week6 === 'sab'">Sáb</span> <span *ngIf="timer.week7 === 'dom'">Dom</span>
+        </ion-label>
+        <ion-label>
+          <ion-icon name="flash-outline"></ion-icon>&nbsp; {{timer.action}}
+        </ion-label>
+      </ion-label>
+
+      <div>
+
+        <button class="transparent" ion-button clear [routerLink]="['/timer-edit/', mac, timer.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+
+        <button class="transparent" ion-button clear (click)="deleteTimer(mac, timer.$key)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+
+      </div>
+    </ion-item>
+  </ng-container>
+</ion-content>

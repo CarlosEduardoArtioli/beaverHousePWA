@@ -1,0 +1,51 @@
+<ion-menu contentId="content">
+
+  <div class="user-menu" (click)="showOptions()">
+    <img src='{{ photo }}'>
+    <h4>{{ name }}</h4>
+  </div>
+
+  <ion-content>
+
+    <div *ngFor="let p of pages">
+
+      <ion-menu-toggle *ngIf="p.url" mode="md">
+        <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active" lines="full">
+          <ion-icon [name]="p.icon" slot="start"></ion-icon>
+          <ion-label>
+            {{ p.title }}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-item button *ngIf="p.children?.length > 0" (click)="p.open = !p.open" [class.active-parent]="p.open"
+        detail=false lines="full" mode="md">
+        <ion-icon slot="end" name="chevron-forward-outline" *ngIf="!p.open"></ion-icon>
+        <ion-icon slot="end" name="chevron-down-outline" *ngIf="p.open"></ion-icon>
+        <ion-icon [name]="p.icon" slot="start"></ion-icon>
+        <ion-label>{{ p.title }}</ion-label>
+      </ion-item>
+
+      <ion-list *ngIf="p.open" mode="md">
+        <ion-menu-toggle mode="md">
+          <ion-item class="sub-item" *ngFor="let sub of p.children" [routerLink]="sub.url" routerDirection="root"
+            routerLinkActive="active">
+            <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+            <ion-label>
+              {{ sub.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </div>
+
+    <ion-item style="position: absolute; width: 100%; bottom: 0;" lines="full" mode="md" (click)="sobre()">
+      <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+      <ion-label>Sobre</ion-label>
+    </ion-item>
+
+  </ion-content>
+
+</ion-menu>
+
+<ion-router-outlet id="content" main></ion-router-outlet>

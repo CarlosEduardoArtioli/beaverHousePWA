@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/edit-room-list" text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Editar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="full">
+    <ion-label>{{ name }}</ion-label>
+    <div class="button">
+      <button class="transparent" ion-button clear (click)="updateName()">
+        <ion-icon name="pencil-outline" style="zoom:2.0"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-icon src="{{ icon }}"></ion-icon>
+    <ion-label>&nbsp;&nbsp;{{ iconName }}</ion-label>
+    <div class="button">
+      <button class="transparent" ion-button clear [routerLink]="['/room-icon/', room]">
+        <ion-icon name="file-tray-full-outline" style="zoom:2.0"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+</ion-content>

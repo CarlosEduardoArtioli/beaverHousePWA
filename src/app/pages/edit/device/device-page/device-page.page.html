@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="menu/edit-device-list" text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Editar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="full">
+    <ion-label>{{ device.name }}</ion-label>
+    <div class="button">
+      <button class="transparent" ion-button clear (click)="updateName()">
+        <ion-icon name="pencil-outline" style="zoom:2.0"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-icon src="{{ device.icon.icon }}"></ion-icon>
+    <ion-label>&nbsp;&nbsp;{{ device.icon.iconName }}</ion-label>
+    <div class="button">
+      <button class="transparent" ion-button clear [routerLink]="['/device-icon/', mac]">
+        <ion-icon name="file-tray-full-outline" style="zoom:2.0"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-icon src="{{ device.room.icon }}"></ion-icon>
+    <ion-label>&nbsp;&nbsp;{{ device.room.name }}</ion-label>
+    <div class="button">
+      <button class="transparent" ion-button clear [routerLink]="['/device-room/', mac]">
+        <ion-icon name="file-tray-full-outline" style="zoom:2.0"></ion-icon>
+      </button>
+    </div>
+  </ion-item>
+</ion-content>

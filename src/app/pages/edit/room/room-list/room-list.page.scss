@@ -1,0 +1,25 @@
+.transparent {
+    background-color: transparent;
+}
+
+ion-icon {
+    color: white;
+}
+
+ion-item {
+    --background: rgb(43, 53, 102, 0.7);
+}
+
+@media (min-width: 720px) {
+    .buttons button ion-icon {
+        font-size: 18px;
+    }
+
+    ion-item ion-label h2 ion-icon {
+        font-size: 36px;
+    }
+
+    ion-item ion-label h2 {
+        font-size: 28px;
+    }
+}

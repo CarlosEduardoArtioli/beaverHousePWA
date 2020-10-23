@@ -1,0 +1,12 @@
+ion-content {
+    --background: url('../../../../assets/img/backgroundapp.png') no-repeat center center / cover !important;
+
+    --ion-text-color: #fff;
+
+    ion-button {
+        max-width: 600px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

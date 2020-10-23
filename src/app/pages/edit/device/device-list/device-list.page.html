@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dispositivos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment color="dark shade" scrollable [(ngModel)]="selectTabs" mode="md">
+
+    <div>
+      <ion-segment-button value="all">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+    </div>
+
+    <div *ngFor="let room of Rooms">
+      <ion-segment-button value="{{ room.name }}">
+        <ion-label>{{ room.name }}</ion-label>
+      </ion-segment-button>
+    </div>
+
+  </ion-segment>
+
+  <ng-container *ngFor="let device of Devices">
+    <ion-item *ngIf="selectTabs == device.room.name || selectTabs == 'all'" lines="full">
+      <ion-label>
+        <h3>
+          <ion-icon src="{{ device.icon.icon }}"></ion-icon>&nbsp;&nbsp;{{device.name}}
+        </h3>
+        <h3>
+          <ion-icon src="{{ device.room.icon }}"></ion-icon>&nbsp;&nbsp;{{device.room.name}}
+        </h3>
+        <h3>
+          <ion-icon name="wifi-outline"></ion-icon>&nbsp;&nbsp;{{device.ap}}
+        </h3>
+      </ion-label>
+
+      <div class="buttons">
+        <button class="transparent" ion-button clear [routerLink]="['/device-page/', device.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+
+        <button class="transparent" ion-button clear (click)="deleteDevice(device.$key)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ng-container>
+
+</ion-content>

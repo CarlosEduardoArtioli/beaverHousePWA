@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Timers
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment color="dark shade" scrollable [(ngModel)]="selectTabs" mode="md">
+
+    <div>
+      <ion-segment-button value="all">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+    </div>
+
+    <div *ngFor="let room of Rooms">
+      <ion-segment-button value="{{ room.name }}">
+        <ion-label>{{ room.name }}</ion-label>
+      </ion-segment-button>
+    </div>
+
+  </ion-segment>
+
+  <ng-container *ngFor="let device of Devices">
+    <div *ngIf="selectTabs == device.room.name || selectTabs == 'all'">
+      <ion-item button lines="full" mode="md" [routerLink]="['/timer-list/', device.$key]">
+        <ion-label>
+          <ion-icon src="{{ device.icon.icon }}"></ion-icon>
+          &nbsp;&nbsp;<strong>{{device.name}}</strong>
+        </ion-label>
+      </ion-item>
+
+      <div>
+      </div>
+    </div>
+  </ng-container>
+
+</ion-content>
