@@ -71,6 +71,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'informacoes',
+    loadChildren: () => import('./pages/informacoes/informacoes.module').then( m => m.InformacoesPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: 'menu/home',
     canActivate: [AuthGuard]

@@ -1,0 +1,60 @@
+h1 {
+    font-family: 'Merienda One', cursive !important;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.logo {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+.logo img {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+.sobre {
+    margin-top: 2px;
+}
+
+.descricao {
+    padding: 10px;
+    margin-top: 0;
+}
+
+.nome {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.foto {
+    margin-top: 5px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+        border-radius: 100%;
+    }
+}
+
+.contato {
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+}
+
+@media (min-width: 720px) {
+    .logo {
+        width: 120px;
+    }
+}

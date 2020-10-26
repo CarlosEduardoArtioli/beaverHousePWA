@@ -41,6 +41,8 @@
                 </ion-icon>
                 <span class="desligado" *ngIf="device.status == 'desligado'">{{ device.name }}</span>
                 <span class="ligado" *ngIf="device.status == 'ligado'">{{ device.name }}</span>
+                <span class="desligado room" *ngIf="device.status == 'desligado'"><ion-icon slot="start" src="{{ device.room.icon }}"></ion-icon> {{ device.room.name }}</span>
+                <span class="ligado room" *ngIf="device.status == 'ligado'"><ion-icon slot="start" src="{{ device.room.icon }}"></ion-icon> {{ device.room.name }}</span>
               </div>
             </ion-button>
           </div>

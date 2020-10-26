@@ -173,13 +173,4 @@ export class MenuPage implements OnInit {
     });
     await alert.present();
   }
-
-  async sobre() {
-    const alert = await this.alertCtrl.create({
-      header: 'DESENVOLVEDORES:',
-      message: 'Carlos Eduardo Artioli<br>(github.com/CarlosEduardoArtioli)<br><br>Guilherme Rodrigues Prado<br>(github.com/gui-prado)',
-      buttons: ['OK']
-    });
-    await alert.present();
-  }
 }
